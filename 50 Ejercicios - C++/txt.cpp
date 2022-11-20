@@ -3,8 +3,7 @@
 using namespace std;
 void txt(int n)
 {
-    setlocale(LC_CTYPE, "spanish"); //Uso de tildes Ñ
-    cout << "=============================================================================================" << endl;
+    line();
     switch (n){
     case 1:
         cout << "1.RUA que lea un numero e imprima por pantalla si el número es mayor, igual o menor de 0." << endl;break;
