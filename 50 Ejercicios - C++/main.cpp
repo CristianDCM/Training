@@ -3,21 +3,23 @@
 #include <iostream>
 #include <locale.h> // Funcion caracteres especiales
 #include <stdlib.h>
+#include "design.cpp" //Funcion diseño
 #include "txt.cpp" //Función imprimir texto
 #include "training.cpp" //Funcion ejercicios
+
 using namespace std;
 int main(){
 system("color 0A"); //Color consola
 setlocale(LC_ALL, ""); 
 int Opciones; string Bucle;
 do{
+design_menu(); line(); 
 cout << "Digite el número del ejercicio que desea ejecutar: ";
 cin >> Opciones;
 while (cin.fail()){ //fail es un metodo de la clase cin que devuelve true si se ha producido un error en la extracción
     cin.clear(); //limpia el error
     cin.ignore(256,'\n');  //ignora los caracteres que se han introducido
-    cout << "Opcion no valida, Digite una opcion valida"<< endl; 
-    cin >> Opciones;
+    cout << "Opcion no valida, Digite una opcion valida"<< endl; cin >> Opciones;
 }
 switch (Opciones){
     case 1:
@@ -122,9 +124,10 @@ switch (Opciones){
         txt(Opciones);ejercicio50();break;
 }
 do{
+line();
 cout << "Desea ejecutar otro ejercicio? (S/N) ";cin >> Bucle;
 if (Bucle == "N" || Bucle == "n"){
-    cout << "Gracias por usar el programa :D" << endl;
+    cout << "Gracias por usar el programa" << endl;
 }
 else if (Bucle == "S" || Bucle == "s"){
     system("cls");
