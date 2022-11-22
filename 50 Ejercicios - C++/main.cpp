@@ -1,25 +1,25 @@
-//@Author: CDCM
-//Errores dentro de los puntos de entrada de casos de prueba(Bucle) 
+//Errores dentro de los puntos de entrada de casos de prueba(Bucle)
 #include <iostream>
 #include <locale.h> // Funcion caracteres especiales
-#include <stdlib.h>
+#include <stdlib.h>  // Funcion system
 #include "design.cpp" //Funcion diseño
 #include "txt.cpp" //Función imprimir texto
 #include "training.cpp" //Funcion ejercicios
-
 using namespace std;
+
 int main(){
-system("color 0A"); //Color consola
-setlocale(LC_ALL, ""); 
+system("mode con: cols=87 lines=38");   //Tamaño consola(87,38)
+system("title 50 Ejercicios - C++");//Titulo consola
+setlocale(LC_ALL, "spanish");  //Caracteres especiales (ñ,á,é,í,ó,ú)
 int Opciones; string Bucle;
 do{
-design_menu(); line(); 
-cout << "Digite el número del ejercicio que desea ejecutar: ";
+line1(); design_menu(); line(); 
+cout << "- Digite el número del ejercicio que desea ejecutar: ";
 cin >> Opciones;
 while (cin.fail()){ //fail es un metodo de la clase cin que devuelve true si se ha producido un error en la extracción
-    cin.clear(); //limpia el error
+    cin.clear(); //limpia el buffer de entrada
     cin.ignore(256,'\n');  //ignora los caracteres que se han introducido
-    cout << "Opcion no valida, Digite una opcion valida"<< endl; cin >> Opciones;
+    cout << "- Opcion no valida, Digite una opcion valida"<< endl; cin >> Opciones;
 }
 switch (Opciones){
     case 1:
@@ -125,19 +125,18 @@ switch (Opciones){
 }
 do{
 line();
-cout << "Desea ejecutar otro ejercicio? (S/N) ";cin >> Bucle;
+cout << "- Desea ejecutar otro ejercicio? (S/N) ";cin >> Bucle;
 if (Bucle == "N" || Bucle == "n"){
-    cout << "Gracias por usar el programa" << endl;
+    cout << "- Gracias por usar el programa" << endl;
 }
 else if (Bucle == "S" || Bucle == "s"){
     system("cls");
     cin.clear();
 }
 else{
-    cout << "Opcion no valida, Digite una opcion valida" << endl;
+    cout << "- Opcion no valida, Digite una opcion valida" << endl;
 }
 }while (Bucle != "S" && Bucle != "s" && Bucle != "N" && Bucle != "n"); //Bucle rep pregunta Ejecutar otro ejercicio?
 }while (Bucle == "S" || Bucle == "s" ); //Bucle rep "S" o "s"
-
 return 0;
 }
